@@ -1,12 +1,13 @@
 //this is model built using mongoose
-
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 //Define MongoDB connection URL
-const mongoURL = 'mongodb://localhost:27017/hotels'; //cluster link
+const mongoURL = process.env.MONGO_URL; //cluster link imported from .env file
+// const mongoURL = process.env.MONGO_URL_LOCAL; 
 
 //set up mongoDB connection
-mongoose.connect(mongoURL, {
+mongoose.connect(mongoURL + '/crudApi', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
