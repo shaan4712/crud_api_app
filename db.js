@@ -7,9 +7,8 @@ const mongoURL = process.env.MONGO_URL; //cluster link imported from .env file
 // const mongoURL = process.env.MONGO_URL_LOCAL; 
 
 //set up mongoDB connection
-mongoose.connect(mongoURL + '/crudApi', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(process.env.MONGO_URL, {
+    dbName: 'crudApi'
 });
 
 //get the default connection
